@@ -60,11 +60,23 @@ public class MainActivity extends AppCompatActivity {
         init();
         initializeMainCalendarSelectedDayChange();
         test();
+        setOnClickListenerForSignOutButton();
 
 
 
 
 
+    }
+
+    private void setOnClickListenerForSignOutButton(){
+        testButton.setOnClickListener(v -> {
+
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+
+        });
     }
     private void test(){
         if (user == null){
@@ -75,14 +87,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             return;
         }
-        testButton.setOnClickListener(v -> {
 
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
-
-        });
     }
     private void init(){
         mainCalendar = findViewById(R.id.mainCalendar);

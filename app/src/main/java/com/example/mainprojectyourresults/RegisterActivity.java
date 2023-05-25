@@ -29,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
     private TextView loginNow;
+    private boolean valIsThePasswordCorrect;
 
 
 
@@ -88,23 +89,38 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Enter password", Toast.LENGTH_LONG).show();
                     return;
                 }
-
-                mAuth.createUserWithEmailAndPassword(valEmail, valPassword)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(RegisterActivity.this, "Account created",
-                                            Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(RegisterActivity.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
+                if (isThePasswordCorrect())
+                {
+                    mAuth.createUserWithEmailAndPassword(valEmail, valPassword)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    progressBar.setVisibility(View.GONE);
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(RegisterActivity.this, "Account created",
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
+                else{
+                Toast.makeText(RegisterActivity.this, "Пароль должен быть больше 6 символов.",
+                        Toast.LENGTH_SHORT).show();
+            }
 
             }
         });
+    }
+    private boolean isThePasswordCorrect(){
+        String valPassword = String.valueOf(password.getText());
+        if (valPassword.length() >= 6) {
+            valIsThePasswordCorrect = true;
+        } else {
+            valIsThePasswordCorrect = false;
+        }
+        return valIsThePasswordCorrect;
     }
 }
