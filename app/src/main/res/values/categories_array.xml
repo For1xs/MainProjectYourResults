@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="categories_array">
+        <item>MSMK</item>
+        <item>MS</item>
+        <item>KMS</item>
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>I(y)</item>
+        <item>II(y)</item>
+        <item>III(y)</item>
+
+    </array>
+</resources>

@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">MainProjectYourResults</string>
+    <string name="app_name">testFinalProject</string>
+    <string name="save_event">Save Event</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="NameOfTheCompetition">Название соревнований</string>
+    <string name="distance">Дистанция</string>
+    <string name="category">Разряд</string>
+    <string name="result">Результат(мин:сек:мсек)</string>
+    <string name="yourCategory">Время</string>
+    <string name="findCategory">Узнать</string>
+    <string name="categoryRun">Категория</string>
+    <string name="round">Круг</string>
+    <string name="calculate">Расчитать</string>
+    <string name="timeToRound">Время на круг</string>
+    <string name="save">Сохранить</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">Click to login</string>
+    <string name="click_to_register">Click to register</string>
+    <string name="getYourCategory">Узнать время на разряд</string>
 </resources>

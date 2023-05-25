@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="run_category_array">
+        <item>Man auto</item>
+        <item>Woman auto</item>
+    </array>
+</resources>
