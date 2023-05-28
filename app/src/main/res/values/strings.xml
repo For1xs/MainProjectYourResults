@@ -5,7 +5,7 @@
     <string name="NameOfTheCompetition">Название соревнований</string>
     <string name="distance">Дистанция</string>
     <string name="category">Разряд</string>
-    <string name="result">Результат(мин:сек:мсек)</string>
+    <string name="result">Результат(м:с:м)</string>
     <string name="yourCategory">Время</string>
     <string name="findCategory">Узнать</string>
     <string name="categoryRun">Категория</string>

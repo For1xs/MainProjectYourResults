@@ -72,7 +72,7 @@ public class YourCategoryPage3 extends AppCompatActivity {
         });
     }
     private void init(){
-        distanceEditTextPage3 = findViewById(R.id.distanceEditTextPage3);
+        distanceEditTextPage3 = findViewById(R.id.distanceEditTextPage4);
         categoryRunEditTextPage3 = findViewById(R.id.categoryRunEditTextPage3);
         resultEditTextPage3 = findViewById(R.id.resultEditTextPage3);
         findResultButton = findViewById(R.id.findResultButton);

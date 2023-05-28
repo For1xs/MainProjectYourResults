@@ -72,7 +72,7 @@ public class TimeToCategoryActivityPage2 extends AppCompatActivity {
         });
     }
     private void init(){
-        distanceEditText = findViewById(R.id.distanceEditText);
+        distanceEditText = findViewById(R.id.distanceEditTextPage4);
         categoryRunEditText = findViewById(R.id.categoryRunEditText);
         categoryEditText = findViewById(R.id.categoryEditTextPage4);
         findTimeButton = findViewById(R.id.findTimeButton);

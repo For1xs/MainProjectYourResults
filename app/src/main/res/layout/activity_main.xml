@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F3F4F9"
     tools:context=".MainActivity">
 
 
@@ -15,7 +16,7 @@
         android:layout_marginStart="7dp"
         android:layout_marginEnd="7dp"
         android:layout_marginBottom="7dp"
-        android:elevation="0dp"
+        android:elevation="-10dp"
         app:cardCornerRadius="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +27,7 @@
             android:layout_height="match_parent"
 
 
-            android:background="@color/main_background_color">
+            android:background="@color/white">
 
 
             <ImageButton
@@ -34,7 +35,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="90dp"
-                android:background="@color/main_background_color"
+                android:background="@color/white"
                 android:scaleType="centerCrop"
                 android:src="@drawable/go_to_third_activity"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -48,7 +49,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginEnd="90dp"
-                android:background="@color/main_background_color"
+                android:background="@color/white"
                 android:scaleType="centerCrop"
                 android:src="@drawable/go_to_fourth_activity"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +62,7 @@
 
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@color/main_background_color"
+                android:background="@color/white"
                 android:scaleType="centerCrop"
                 android:src="@drawable/go_to_first_activity"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +80,6 @@
         android:layout_marginStart="7dp"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="7dp"
-        android:elevation="14dp"
         app:cardCornerRadius="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,14 +88,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/main_background_color">
+            android:background="@color/white">
 
             <ImageButton
                 android:id="@+id/testButton"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginStart="-270dp"
-                android:background="@color/main_background_color"
+                android:background="@color/white"
                 android:scaleType="centerCrop"
                 android:src="@drawable/back_img"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -115,7 +115,6 @@
         android:layout_marginEnd="2dp"
 
         app:cardCornerRadius="17dp"
-        app:cardElevation="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
