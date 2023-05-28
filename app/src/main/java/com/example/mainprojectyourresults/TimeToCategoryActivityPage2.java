@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.mainprojectyourresults.data.RankTableManAutoData;
 import com.example.mainprojectyourresults.data.RankTableWomanAutoData;
 import com.example.mainprojectyourresults.data.TableOfDistances;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -37,6 +38,8 @@ public class TimeToCategoryActivityPage2 extends AppCompatActivity {
     private ImageButton goToFirstActivity;
     private ImageButton goToThirdActivity;
     private ImageButton goToFourthActivity;
+    private ImageButton signOutButton;
+
 
 
     @Override
@@ -49,6 +52,18 @@ public class TimeToCategoryActivityPage2 extends AppCompatActivity {
         getOnItemSelectedListenerForCategoryEditText();
         goToAnotherActivities();
         onClick();
+        setOnClickListenerForSignOutButton();
+    }
+
+    private void setOnClickListenerForSignOutButton(){
+        signOutButton.setOnClickListener(v -> {
+
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+
+        });
     }
     private void goToAnotherActivities(){
         goToFirstActivity = findViewById(R.id.goToFirstActivity);
@@ -72,11 +87,12 @@ public class TimeToCategoryActivityPage2 extends AppCompatActivity {
         });
     }
     private void init(){
-        distanceEditText = findViewById(R.id.distanceEditTextPage4);
+        distanceEditText = findViewById(R.id.editTextDistance);
         categoryRunEditText = findViewById(R.id.categoryRunEditText);
         categoryEditText = findViewById(R.id.categoryEditTextPage4);
         findTimeButton = findViewById(R.id.findTimeButton);
         yourCategory = findViewById(R.id.yourCategory);
+        signOutButton = findViewById(R.id.signOutButton2);
         ArrayAdapter<CharSequence> adapterForCategoryEditTextPage2 = ArrayAdapter.createFromResource(this,
                 R.array.categories_array, android.R.layout.simple_spinner_item);
         adapterForCategoryEditTextPage2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -10,11 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ArrayAdapter;
 import com.example.mainprojectyourresults.data.RankTableManAutoData;
 import com.example.mainprojectyourresults.data.RankTableWomanAutoData;
 import com.example.mainprojectyourresults.data.TableOfDistances;
+import com.google.firebase.auth.FirebaseAuth;
+
 import android.widget.Spinner;
 
 import java.util.Objects;
@@ -24,19 +25,19 @@ public class CalculateTimePage4 extends AppCompatActivity {
     private EditText distanceEditTextPage4;
     private Spinner categoryEditTextPage4;
     private Spinner categoryRunEditTextPage4;
-    private EditText roundEditTextPage4;
     private Button calculateButtonPage4;
     private TextView timeToRoundTextViewPage4;
     private String valDistanceEditTextPage4;
     private String valCategoryEditTextPage4;
     private String valCategoryRunEditTextPage4;
-    private String valRoundEditTextPage4;
     private final RankTableManAutoData rankTableManAutoData = new RankTableManAutoData();
     private final RankTableWomanAutoData rankTableWomanAutoData = new RankTableWomanAutoData();
     private final TableOfDistances tableOfDistances = new TableOfDistances();
     private ImageButton goToFirstActivity;
     private ImageButton goToThirdActivity;
     private ImageButton goToFourthActivity;
+    private ImageButton signOutButton;
+
 
 
 
@@ -50,7 +51,18 @@ public class CalculateTimePage4 extends AppCompatActivity {
         getOnItemSelectedListenerForCategoryEditTextPage4();
         getOnItemSelectedListenerForRunCategoryEditTextPage4();
         goToAnotherActivities();
+        setOnClickListenerForSignOutButton();
 
+    }
+    private void setOnClickListenerForSignOutButton(){
+        signOutButton.setOnClickListener(v -> {
+
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+
+        });
     }
     private void goToAnotherActivities(){
         goToFirstActivity = findViewById(R.id.goToFirstActivity);
@@ -72,11 +84,11 @@ public class CalculateTimePage4 extends AppCompatActivity {
     }
     private void init(){
         categoryEditTextPage4 = findViewById(R.id.categoryEditTextPage4);
-        distanceEditTextPage4 = findViewById(R.id.distanceEditTextPage4);
+        distanceEditTextPage4 = findViewById(R.id.editTextDistance);
         categoryRunEditTextPage4 = findViewById(R.id.categoryRunEditTextPage4);
-        roundEditTextPage4 = findViewById(R.id.roundEditTextPage4);
         calculateButtonPage4 = findViewById(R.id.calculateButtonPage4);
         timeToRoundTextViewPage4 = findViewById(R.id.timeToRoundTextViewPage4);
+        signOutButton = findViewById(R.id.signOutButton4);
 
         ArrayAdapter<CharSequence> adapterForCategoryEditTextPage4 = ArrayAdapter.createFromResource(this,
                 R.array.categories_array, android.R.layout.simple_spinner_item);
@@ -133,7 +145,6 @@ public class CalculateTimePage4 extends AppCompatActivity {
     private void onClick(){
         calculateButtonPage4.setOnClickListener( v->{
             valDistanceEditTextPage4 = distanceEditTextPage4.getText().toString();
-            valRoundEditTextPage4 = roundEditTextPage4.getText().toString();
 
             String[] arrayOfDouble = String.valueOf(calculateTimeToRound()).split("[.]");
             if(!isTheElementInTheList()){
@@ -153,7 +164,7 @@ public class CalculateTimePage4 extends AppCompatActivity {
 
         if(isTheElementInTheList()) {
             String[] arrayOfStrings = valDistanceEditTextPage4.split(" ");
-            double numberOfRounds = Double.parseDouble(arrayOfStrings[0])/Double.parseDouble(valRoundEditTextPage4);
+            double numberOfRounds = Double.parseDouble(arrayOfStrings[0])/Double.parseDouble(arrayOfStrings[1]);
 
 
             String[] arrayOfDouble = String.valueOf(getTime()).split("[.]");

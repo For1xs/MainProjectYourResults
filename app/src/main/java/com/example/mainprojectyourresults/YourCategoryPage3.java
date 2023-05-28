@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.mainprojectyourresults.data.RankTableManAutoData;
 import com.example.mainprojectyourresults.data.RankTableWomanAutoData;
 import com.example.mainprojectyourresults.data.TableOfDistances;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -37,6 +38,8 @@ public class YourCategoryPage3 extends AppCompatActivity {
     private ImageButton goToFirstActivity;
     private ImageButton goToThirdActivity;
     private ImageButton goToFourthActivity;
+    private ImageButton signOutButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,18 @@ public class YourCategoryPage3 extends AppCompatActivity {
         onClick();
         getOnItemSelectedListenerForCategoryEditTextPage3();
         goToAnotherActivities();
+        setOnClickListenerForSignOutButton();
 
+    }
+    private void setOnClickListenerForSignOutButton(){
+        signOutButton.setOnClickListener(v -> {
+
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+
+        });
     }
     private void goToAnotherActivities(){
         goToFirstActivity = findViewById(R.id.goToFirstActivity);
@@ -72,11 +86,12 @@ public class YourCategoryPage3 extends AppCompatActivity {
         });
     }
     private void init(){
-        distanceEditTextPage3 = findViewById(R.id.distanceEditTextPage4);
+        distanceEditTextPage3 = findViewById(R.id.editTextDistance);
         categoryRunEditTextPage3 = findViewById(R.id.categoryRunEditTextPage3);
         resultEditTextPage3 = findViewById(R.id.resultEditTextPage3);
         findResultButton = findViewById(R.id.findResultButton);
         categoryTextView = findViewById(R.id.categoryTextView);
+        signOutButton = findViewById(R.id.signOutButton3);
         goToSecondActivity = findViewById(R.id.goToSecondActivity);
         ArrayAdapter<CharSequence> adapterForRunCategoryEditTextPage4 = ArrayAdapter.createFromResource(this,
                 R.array.run_category_array, android.R.layout.simple_spinner_item);

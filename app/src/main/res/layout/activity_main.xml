@@ -91,13 +91,25 @@
             android:background="@color/white">
 
             <ImageButton
-                android:id="@+id/testButton"
+                android:id="@+id/signOutButton"
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginStart="-270dp"
-                android:background="@color/white"
                 android:scaleType="centerCrop"
-                android:src="@drawable/back_img"
+                android:background="@color/white"
+                android:src="@drawable/sign_out"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -127,6 +139,17 @@
 
             />
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="190dp"
+        android:src="@drawable/layoutimg_1"
+        android:layout_height="190dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

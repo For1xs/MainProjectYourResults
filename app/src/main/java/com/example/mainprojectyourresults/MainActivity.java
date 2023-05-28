@@ -3,13 +3,11 @@ package com.example.mainprojectyourresults;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference eventDatabaseReference;
     private FirebaseAuth auth;
     private FirebaseUser user;
-    private ImageButton testButton;
+    private ImageButton signOutButton;
     private Button saveEventButton;
     private EditText editTextNameOfTheCompetition;
     private EditText editTextDistance;
@@ -69,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setOnClickListenerForSignOutButton(){
-        testButton.setOnClickListener(v -> {
+        signOutButton.setOnClickListener(v -> {
 
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -98,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         eventDatabaseReference = databaseReference.child("Calendar");
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
-        testButton = findViewById(R.id.testButton);
+        signOutButton = findViewById(R.id.signOutButton);
         email = getEmailWithoutPoint();
 
     }
@@ -177,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         ConstraintLayout constraintLayout = (ConstraintLayout) getLayoutInflater()
                 .inflate(R.layout.dialog_set_event, null);
+        constraintLayout.setBackgroundResource(R.drawable.corner);
         editTextNameOfTheCompetition = constraintLayout.findViewById(R.id.editTextNameOfTheCompetition);
         editTextDistance = constraintLayout.findViewById(R.id.editTextDistance);
         editTextСategory = constraintLayout.findViewById(R.id.editTextСategory);

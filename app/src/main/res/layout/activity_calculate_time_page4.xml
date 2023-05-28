@@ -15,7 +15,7 @@
         android:text="@string/calculate"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView7" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
 
     <TextView
         android:id="@+id/timeToRoundTextViewPage4"
@@ -26,7 +26,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView7" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView10"
@@ -56,22 +56,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView6">
+        app:layout_constraintTop_toBottomOf="@+id/cardView5">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="6dp"
-            app:cardCornerRadius="17dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/main_background_color">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="13dp"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/users_alt"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <Spinner
             android:id="@+id/categoryRunEditTextPage4"
@@ -81,45 +77,6 @@
             android:layout_marginTop="13dp"
             android:layout_marginRight="60dp" />
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView6"
-        android:layout_width="240dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="17dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView5">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="6dp"
-            app:cardCornerRadius="17dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/main_background_color">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <EditText
-            android:id="@+id/roundEditTextPage4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginRight="70dp"
-            android:background="@android:color/transparent"
-            android:hint="@string/round"
-            android:inputType="textPersonName"
-            android:textColorHint="@color/grayBackgroundText" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -133,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <EditText
-            android:id="@+id/distanceEditTextPage4"
+            android:id="@+id/editTextDistance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
@@ -144,20 +101,17 @@
             android:inputType="textPersonName"
             android:textColorHint="@color/grayBackgroundText" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="6dp"
-            app:cardCornerRadius="17dp">
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="13dp"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/running_track"
+            tools:srcCompat="@tools:sample/avatars" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/main_background_color">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -176,7 +130,34 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white" />
+            android:background="@color/white" >
+
+            <ImageView
+                android:id="@+id/logo2"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/logo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/signOutButton4"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginStart="-270dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sign_out"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -254,20 +235,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView8">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="6dp"
-            app:cardCornerRadius="17dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/main_background_color">
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="13dp"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/category_img"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <Spinner
             android:id="@+id/categoryEditTextPage4"
@@ -277,5 +254,17 @@
             android:layout_marginTop="13dp" />
 
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:src="@drawable/layoutimg_2"
+        android:layout_marginTop="-90dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView7"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
