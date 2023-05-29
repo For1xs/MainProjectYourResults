@@ -78,11 +78,12 @@
         android:id="@+id/cardView5"
         android:layout_width="240dp"
         android:layout_height="49dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         app:cardCornerRadius="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/imageView17">
 
         <ImageView
             android:id="@+id/imageView9"
@@ -223,6 +224,7 @@
         android:id="@+id/goToSecondActivity"
         android:layout_width="246dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
         android:text="@string/getYourCategory"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
@@ -235,12 +237,11 @@
         android:id="@+id/cardV"
         android:layout_width="240dp"
         android:layout_height="59dp"
-        android:layout_marginTop="-90dp"
         app:cardCornerRadius="17dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView17">
+        app:layout_constraintTop_toBottomOf="@+id/cardView6">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -274,12 +275,12 @@
         android:id="@+id/imageView17"
         android:layout_width="190dp"
         android:layout_height="190dp"
-        android:layout_marginTop="-170dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/layoutimg_4"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView6"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
         tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
