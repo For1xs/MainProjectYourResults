@@ -235,13 +235,16 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardV"
-        android:layout_width="240dp"
+        android:layout_width="0dp"
         android:layout_height="59dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
         app:cardCornerRadius="17dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView6">
+        app:layout_constraintTop_toBottomOf="@+id/cardView6"
+        tools:cardCornerRadius="17dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -251,10 +254,11 @@
                 android:id="@+id/categoryTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginEnd="190dp"
                 android:text="@string/category"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -262,7 +266,7 @@
                 android:id="@+id/findResultButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="70dp"
                 android:text="@string/findCategory"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

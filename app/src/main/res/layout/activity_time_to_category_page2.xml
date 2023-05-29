@@ -215,8 +215,10 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView13"
-        android:layout_width="240dp"
+        android:layout_width="0dp"
         android:layout_height="59dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
         app:cardCornerRadius="17dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -231,7 +233,7 @@
                 android:id="@+id/findTimeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="80dp"
                 android:text="@string/findCategory"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -241,11 +243,12 @@
                 android:id="@+id/yourCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
                 android:text="@string/yourCategory"
                 android:textColor="@color/grayBackgroundText"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/findTimeButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
