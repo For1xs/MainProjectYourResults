@@ -13,6 +13,6 @@ public class Event {
         this.result = result;
     }
 
-    public Event() {
+    public Event()  {
     }
 }
