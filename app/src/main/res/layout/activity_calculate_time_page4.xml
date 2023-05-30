@@ -249,7 +249,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="59dp"
+        android:layout_height="69dp"
         android:layout_marginStart="7dp"
         android:layout_marginEnd="7dp"
         app:cardCornerRadius="17dp"
@@ -275,11 +275,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:background="@drawable/roundedbutton"
                 android:id="@+id/calculateButtonPage4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="150dp"
+                android:background="@drawable/roundedbutton"
                 android:text="@string/calculate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
