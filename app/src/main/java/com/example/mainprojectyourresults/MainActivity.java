@@ -112,8 +112,7 @@ public class MainActivity extends AppCompatActivity {
     private String getEmailWithoutPoint(){
         String email = user.getEmail();
         assert email != null;
-        int index = email.indexOf(".");
-        return email.substring(0, index);
+        return email.replaceAll("\\.", "");
 
     }
     private void goToAnotherActivities(){
@@ -186,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         ConstraintLayout constraintLayout = (ConstraintLayout) getLayoutInflater()
                 .inflate(R.layout.dialog_set_event, null);
-        constraintLayout.setBackgroundResource(R.drawable.corner);
+//        constraintLayout.setBackgroundResource(R.drawable.rounded_background);
         editTextNameOfTheCompetition = constraintLayout.findViewById(R.id.editTextNameOfTheCompetition);
         editTextDistance = constraintLayout.findViewById(R.id.editTextDistance);
         editTextСategory = constraintLayout.findViewById(R.id.editTextСategory);
@@ -221,8 +220,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         builder.setView(constraintLayout);
-        builder.show();
-
+        AlertDialog processingAlertDialog = builder.create();
+        processingAlertDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        processingAlertDialog.show();
 
 
     }
