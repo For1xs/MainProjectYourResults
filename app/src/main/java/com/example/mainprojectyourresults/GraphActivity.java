@@ -4,13 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,12 +26,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.sql.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -44,6 +50,9 @@ public class GraphActivity extends AppCompatActivity {
     private String valVariantsOfDistances;
     int allDay;
     private FirebaseAuth auth;
+    private ImageButton goToThirdActivity;
+    private ImageButton goToFourthActivity;
+    private ImageButton goToFirstActivity;
     double timeInSecondsPlusMillisecondsInt;
 
     private FirebaseUser user;
@@ -53,11 +62,13 @@ public class GraphActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         setContentView(R.layout.activity_graph);
         init();
         getOnItemSelectedListenerForCategoryEditText();
         setOnClickListenerForBtnInsert();
-
+        graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
+        goToAnotherActivities();
     }
     private void init() {
         btnInsert = findViewById(R.id.btnInsert);
@@ -92,6 +103,32 @@ public class GraphActivity extends AppCompatActivity {
         return email.substring(0, index);
 
     }
+    private void goToAnotherActivities(){
+        goToFirstActivity = findViewById(R.id.goToFirstActivity);
+        goToThirdActivity = findViewById(R.id.goToThirdActivity);
+        goToFourthActivity = findViewById(R.id.goToFourthActivity);
+
+
+
+
+
+        goToFirstActivity.setOnClickListener(v -> {
+            Intent intent1 = new Intent(this, MainActivity.class);
+            startActivity(intent1);
+            finish();
+        });
+        goToThirdActivity.setOnClickListener(v ->{
+            Intent intent2 = new Intent(this, YourCategoryPage3.class);
+            startActivity(intent2);
+            finish();
+        });
+        goToFourthActivity.setOnClickListener(v ->{
+            Intent intent3 = new Intent(this, CalculateTimePage4.class);
+            startActivity(intent3);
+            finish();
+        });
+    }
+
     private void getOnItemSelectedListenerForCategoryEditText(){
 
         variantsOfDistances.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -117,44 +154,61 @@ public class GraphActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<DataSnapshot> matchingChildren = new ArrayList<>();
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    int point = 0;
                     if (childSnapshot.child("distance").getValue(String.class).equals(valVariantsOfDistances)) {
                         matchingChildren.add(childSnapshot);
                         List<String> childValues = new ArrayList<>();
                         for (DataSnapshot valueSnapshot : childSnapshot.getChildren()) {
                             childValues.add(valueSnapshot.getValue(String.class));
+                            point++;
                         }
 
 
                         //день
                         String date = childValues.get(2);
                         String[] partsOfDate = date.split(":");
-                        String day = partsOfDate[0];
-                        String month = partsOfDate[1];
-                        String year = partsOfDate[2];
-                        allDay = Integer.parseInt(day + month + year);
+                        int day = Integer.parseInt(partsOfDate[0]);
+                        int month = Integer.parseInt(partsOfDate[1]);
+                        int year = Integer.parseInt(partsOfDate[2]);
+//                        allDay = Double.parseDouble(day + "." + month);
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.set(year, month-1, day); // month is zero-indexed
+                        Date allDay = calendar.getTime();
 
 
                         //результат
                         String result = childValues.get(4);
                         String[] parts = result.split(":");
+//                        int minutes = Integer.parseInt(parts[0]);
+//                        int seconds = Integer.parseInt(parts[1]);
+//                        int milliseconds = Integer.parseInt(parts[2]);
+//                        int totalSeconds = minutes * 60 + seconds;
+//                        String timeInSecondsPlusMilliseconds = totalSeconds + "." + milliseconds;
                         int minutes = Integer.parseInt(parts[0]);
                         int seconds = Integer.parseInt(parts[1]);
-                        int milliseconds = Integer.parseInt(parts[2]);
-                        int totalSeconds = minutes * 60 + seconds;
-                        String timeInSecondsPlusMilliseconds = totalSeconds + "." + milliseconds;
+                        String timeInSecondsPlusMilliseconds = minutes + "." + seconds;
                         timeInSecondsPlusMillisecondsInt = Double.parseDouble(timeInSecondsPlusMilliseconds);
                         series = new LineGraphSeries<>(new DataPoint[] {
-                                new DataPoint(timeInSecondsPlusMillisecondsInt, allDay)
+                                new DataPoint(allDay, timeInSecondsPlusMillisecondsInt)
                         });
 
 
 
-
+                        series.setColor(Color.argb(200,162,201,255));
+                        series.setDrawAsPath(true);
+                        series.setDataPointsRadius(20);
+                        series.setThickness(8);
+                        series.setDrawDataPoints(true);
+                        graph.addSeries(series);
 
                     }
+                    else if(point == 0){
+                    }
+
                 }
 
-                graph.addSeries(series);
+
+
             }
 
             @Override

@@ -39,6 +39,7 @@ public class YourCategoryPage3 extends AppCompatActivity {
     private ImageButton goToThirdActivity;
     private ImageButton goToFourthActivity;
     private ImageButton signOutButton;
+    private ImageButton goToFifthActivity;
 
 
     @Override
@@ -67,7 +68,14 @@ public class YourCategoryPage3 extends AppCompatActivity {
         goToFirstActivity = findViewById(R.id.goToFirstActivity);
         goToThirdActivity = findViewById(R.id.goToThirdActivity);
         goToFourthActivity = findViewById(R.id.goToFourthActivity);
+        goToFifthActivity = findViewById(R.id.goToFifthActivity);
 
+
+
+        goToFifthActivity.setOnClickListener(v ->{
+            Intent intent = new Intent(this, GraphActivity.class);
+            startActivity(intent);
+        });
         goToFirstActivity.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

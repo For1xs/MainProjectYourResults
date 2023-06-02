@@ -1,10 +1,12 @@
 package com.example.mainprojectyourresults;
 
+import java.util.Date;
+
 public class PointValue {
     long xValue;
     int yValue;
 
-    public PointValue() {
+    public PointValue(Date allDay, double timeInSecondsPlusMillisecondsInt) {
 
     }
 

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> listData;
     private ImageButton goToThirdActivity;
     private ImageButton goToFourthActivity;
-    private Button goToFifthActivity;
+    private ImageButton goToFifthActivity;
     private String email;
     public String distance;
     private LoginActivity loginActivity = new LoginActivity();
@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
     }
     private void init(){
         mainCalendar = findViewById(R.id.mainCalendar);
-        textView = findViewById(R.id.textView);
         listData = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(this,R.layout.dialog_set_event, listData);
         databaseReference = FirebaseDatabase.getInstance("https://mainprojectyourresults-77941-default-rtdb.asia-southeast1.firebasedatabase.app/")

@@ -8,6 +8,84 @@
     tools:context=".CalculateTimePage4">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="7dp"
+        android:elevation="-10dp"
+        app:cardCornerRadius="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+            android:background="@color/white">
+
+            <ImageButton
+                android:id="@+id/goToFifthActivity"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="55dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/stats"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/goToThirdActivity"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="57dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/go_to_third_activity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/goToFifthActivity"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+
+                android:id="@+id/goToFourthActivity"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="55dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/go_to_fourth_activity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/goToFirstActivity"
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="57dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/go_to_first_activity"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/goToFourthActivity"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/cardView10"
         android:layout_width="0dp"
         android:layout_height="49dp"
@@ -132,70 +210,6 @@
                 android:background="@color/white"
                 android:scaleType="centerCrop"
                 android:src="@drawable/sign_out"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="0dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="7dp"
-        android:elevation="0dp"
-        app:cardCornerRadius="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-
-            android:background="@color/white">
-
-
-            <ImageButton
-                android:id="@+id/goToThirdActivity"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="90dp"
-                android:background="@color/white"
-                android:scaleType="centerCrop"
-                android:src="@drawable/go_to_third_activity"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/goToFirstActivity"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <ImageButton
-
-                android:id="@+id/goToFourthActivity"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginEnd="90dp"
-                android:background="@color/white"
-                android:scaleType="centerCrop"
-                android:src="@drawable/go_to_fourth_activity"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/goToFirstActivity"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <ImageButton
-                android:id="@+id/goToFirstActivity"
-
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:background="@color/white"
-                android:scaleType="centerCrop"
-                android:src="@drawable/go_to_first_activity"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

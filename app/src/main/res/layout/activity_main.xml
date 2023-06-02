@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F4F9"
+    tools:background="@color/white"
     tools:context=".MainActivity">
 
 
@@ -29,17 +30,29 @@
 
             android:background="@color/white">
 
+            <ImageButton
+                android:id="@+id/goToFifthActivity"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="55dp"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/stats"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <ImageButton
                 android:id="@+id/goToThirdActivity"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginStart="90dp"
+                android:layout_marginEnd="57dp"
                 android:background="@color/white"
                 android:scaleType="centerCrop"
                 android:src="@drawable/go_to_third_activity"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/goToFirstActivity"
+                app:layout_constraintEnd_toStartOf="@+id/goToFifthActivity"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
@@ -48,12 +61,12 @@
                 android:id="@+id/goToFourthActivity"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginEnd="90dp"
+                android:layout_marginStart="55dp"
                 android:background="@color/white"
                 android:scaleType="centerCrop"
                 android:src="@drawable/go_to_fourth_activity"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/goToFirstActivity"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
@@ -62,14 +75,16 @@
 
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_marginStart="57dp"
                 android:background="@color/white"
                 android:scaleType="centerCrop"
                 android:src="@drawable/go_to_first_activity"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/goToFourthActivity"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -95,8 +110,8 @@
                 android:layout_width="17dp"
                 android:layout_height="17dp"
                 android:layout_marginStart="-270dp"
-                android:scaleType="centerCrop"
                 android:background="@color/white"
+                android:scaleType="centerCrop"
                 android:src="@drawable/sign_out"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -152,25 +167,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <Button
-        android:id="@+id/goToFifthActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="График"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goToFifthActivity" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
