@@ -93,6 +93,8 @@ public class TimeToCategoryActivityPage2 extends AppCompatActivity {
         findTimeButton = findViewById(R.id.findTimeButton);
         yourCategory = findViewById(R.id.yourCategory);
         signOutButton = findViewById(R.id.signOutButton2);
+
+
         ArrayAdapter<CharSequence> adapterForCategoryEditTextPage2 = ArrayAdapter.createFromResource(this,
                 R.array.categories_array, android.R.layout.simple_spinner_item);
         adapterForCategoryEditTextPage2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

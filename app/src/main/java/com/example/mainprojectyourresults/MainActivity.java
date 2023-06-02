@@ -8,14 +8,17 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String stringDateSelected;
     private DatabaseReference eventDatabaseReference;
+    private DatabaseReference listOfDistancesDatabaseReference;
     private FirebaseAuth auth;
     private FirebaseUser user;
     private ImageButton signOutButton;
@@ -45,8 +49,11 @@ public class MainActivity extends AppCompatActivity {
     private List<String> listData;
     private ImageButton goToThirdActivity;
     private ImageButton goToFourthActivity;
+    private Button goToFifthActivity;
     private String email;
+    public String distance;
     private LoginActivity loginActivity = new LoginActivity();
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,11 +96,13 @@ public class MainActivity extends AppCompatActivity {
     }
     private void init(){
         mainCalendar = findViewById(R.id.mainCalendar);
+        textView = findViewById(R.id.textView);
         listData = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(this,R.layout.dialog_set_event, listData);
         databaseReference = FirebaseDatabase.getInstance("https://mainprojectyourresults-77941-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference();
         eventDatabaseReference = databaseReference.child("Calendar");
+        listOfDistancesDatabaseReference = databaseReference.child("ListOfDistances");
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
         signOutButton = findViewById(R.id.signOutButton);
@@ -110,12 +119,14 @@ public class MainActivity extends AppCompatActivity {
     private void goToAnotherActivities(){
         goToThirdActivity = findViewById(R.id.goToThirdActivity);
         goToFourthActivity = findViewById(R.id.goToFourthActivity);
+        goToFifthActivity = findViewById(R.id.goToFifthActivity);
 
 
 
-
-
-
+        goToFifthActivity.setOnClickListener(v ->{
+            Intent intent = new Intent(this, GraphActivity.class);
+            startActivity(intent);
+        });
         goToThirdActivity.setOnClickListener(v ->{
             Intent intent = new Intent(this, YourCategoryPage3.class);
             startActivity(intent);
@@ -191,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
             String id = stringDateSelected;
             String nameOfTheCompetition = editTextNameOfTheCompetition.getText().toString();
-            String distance = editTextDistance.getText().toString();
+            distance = editTextDistance.getText().toString();
             String category = editTextСategory.getText().toString();
             String result = editTextResult.getText().toString();
 
@@ -199,7 +210,15 @@ public class MainActivity extends AppCompatActivity {
             eventDatabaseReference.child(email).child(stringDateSelected).setValue(newEvent);
 
 
+            ResultForOneDistance newResultForOneDistance = new ResultForOneDistance(stringDateSelected, distance);
+            listOfDistancesDatabaseReference.child(email).child(distance).child(stringDateSelected).setValue(newResultForOneDistance);
+
+
+
+
         });
+
+
 
         builder.setView(constraintLayout);
         builder.show();
@@ -207,6 +226,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
 
 }
