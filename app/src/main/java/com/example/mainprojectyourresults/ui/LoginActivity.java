@@ -1,4 +1,4 @@
-package com.example.mainprojectyourresults;
+package com.example.mainprojectyourresults.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,13 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mainprojectyourresults.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -22,16 +22,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
-public class RegisterActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private TextInputEditText email;
     private TextInputEditText password;
-    private Button registerButton;
+    private Button loginButton;
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
-    private TextView loginNow;
-    private boolean valIsThePasswordCorrect;
-
-
+    private TextView registerNow;
 
     @Override
     public void onStart() {
@@ -46,33 +43,35 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_login);
         Objects.requireNonNull(getSupportActionBar()).hide();
         init();
-        setOnClickListenerForRegisterButton();
         setOnClickListenerForLoginNowText();
+        setOnClickListenerForLoginButton();
     }
     private void init(){
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        registerButton = findViewById(R.id.registerButton);
+        loginButton = findViewById(R.id.loginButton);
         mAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
-        loginNow = findViewById(R.id.loginNow);
+        registerNow = findViewById(R.id.registerNow);
 
     }
+
     private void setOnClickListenerForLoginNowText(){
-        loginNow.setOnClickListener(new View.OnClickListener() {
+        registerNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
     }
-    private void setOnClickListenerForRegisterButton(){
-        registerButton.setOnClickListener(new View.OnClickListener() {
+
+    private void setOnClickListenerForLoginButton(){
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE );
@@ -81,46 +80,39 @@ public class RegisterActivity extends AppCompatActivity {
                 valEmail = String.valueOf(email.getText());
                 valPassword = String.valueOf(password.getText());
                 if (TextUtils.isEmpty(valEmail)){
-                    Toast.makeText(RegisterActivity.this, "Enter email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Enter email", Toast.LENGTH_LONG).show();
                     return;
 
                 }
                 if (TextUtils.isEmpty(valPassword)){
-                    Toast.makeText(RegisterActivity.this, "Enter password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Enter password", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if (isThePasswordCorrect())
-                {
-                    mAuth.createUserWithEmailAndPassword(valEmail, valPassword)
+
+                    mAuth.signInWithEmailAndPassword(valEmail, valPassword)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     progressBar.setVisibility(View.GONE);
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(RegisterActivity.this, "Account created",
+                                        Toast.makeText(LoginActivity.this, "Login successful",
                                                 Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
                                     } else {
-                                        Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                        Toast.makeText(LoginActivity.this, "Authentication failed.",
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
-                }
-                else{
-                Toast.makeText(RegisterActivity.this, "Пароль должен быть больше 6 символов.",
-                        Toast.LENGTH_SHORT).show();
-            }
+
+
+
+
 
             }
         });
     }
-    private boolean isThePasswordCorrect(){
-        String valPassword = String.valueOf(password.getText());
-        if (valPassword.length() >= 6) {
-            valIsThePasswordCorrect = true;
-        } else {
-            valIsThePasswordCorrect = false;
-        }
-        return valIsThePasswordCorrect;
-    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.mainprojectyourresults;
+package com.example.mainprojectyourresults.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
+
+import com.example.mainprojectyourresults.R;
 import com.example.mainprojectyourresults.data.RankTableManAutoData;
 import com.example.mainprojectyourresults.data.RankTableWomanAutoData;
 import com.example.mainprojectyourresults.data.TableOfDistances;

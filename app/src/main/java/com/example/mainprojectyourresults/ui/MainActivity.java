@@ -1,4 +1,4 @@
-package com.example.mainprojectyourresults;
+package com.example.mainprojectyourresults.ui;
 
 
 import android.content.Intent;
@@ -11,14 +11,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.example.mainprojectyourresults.Event;
+import com.example.mainprojectyourresults.R;
+import com.example.mainprojectyourresults.ResultForOneDistance;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

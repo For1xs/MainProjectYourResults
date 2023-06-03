@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3F4F9"
-    tools:context=".CalculateTimePage4">
+    tools:context=".ui.CalculateTimePage4">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -189,6 +189,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white" >
+
+            <ImageView
+                android:id="@+id/imageView19"
+                android:layout_width="17dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="-270dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/go_to_fourth_activity"
+                tools:srcCompat="@drawable/go_to_fourth_activity" />
 
             <ImageView
                 android:id="@+id/logo2"

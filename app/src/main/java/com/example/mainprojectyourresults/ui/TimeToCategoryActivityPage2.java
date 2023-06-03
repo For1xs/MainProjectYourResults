@@ -1,4 +1,4 @@
-package com.example.mainprojectyourresults;
+package com.example.mainprojectyourresults.ui;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.mainprojectyourresults.R;
 import com.example.mainprojectyourresults.data.RankTableManAutoData;
 import com.example.mainprojectyourresults.data.RankTableWomanAutoData;
 import com.example.mainprojectyourresults.data.TableOfDistances;

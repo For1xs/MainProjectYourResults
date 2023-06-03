@@ -1,7 +1,5 @@
-package com.example.mainprojectyourresults;
+package com.example.mainprojectyourresults.ui;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,24 +12,20 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.mainprojectyourresults.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.jjoe64.graphview.DefaultLabelFormatter;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-import java.sql.Array;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -188,22 +182,25 @@ public class GraphActivity extends AppCompatActivity {
                         int seconds = Integer.parseInt(parts[1]);
                         String timeInSecondsPlusMilliseconds = minutes + "." + seconds;
                         timeInSecondsPlusMillisecondsInt = Double.parseDouble(timeInSecondsPlusMilliseconds);
+
+
                         series = new LineGraphSeries<>(new DataPoint[] {
                                 new DataPoint(allDay, timeInSecondsPlusMillisecondsInt)
                         });
-
-
-
                         series.setColor(Color.argb(200,162,201,255));
                         series.setDrawAsPath(true);
                         series.setDataPointsRadius(20);
                         series.setThickness(8);
                         series.setDrawDataPoints(true);
+                        graph.getGridLabelRenderer().setNumHorizontalLabels(5); // only 4 because of the space
                         graph.addSeries(series);
 
                     }
                     else if(point == 0){
                     }
+
+
+
 
                 }
 
