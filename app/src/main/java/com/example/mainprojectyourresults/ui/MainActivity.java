@@ -127,11 +127,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         goToThirdActivity.setOnClickListener(v ->{
-            Intent intent = new Intent(this, YourCategoryPage3.class);
+            Intent intent = new Intent(this, YourCategoryPage.class);
             startActivity(intent);
         });
         goToFourthActivity.setOnClickListener(v ->{
-            Intent intent = new Intent(this, CalculateTimePage4.class);
+            Intent intent = new Intent(this, CalculateTimePage.class);
             startActivity(intent);
         });
     }

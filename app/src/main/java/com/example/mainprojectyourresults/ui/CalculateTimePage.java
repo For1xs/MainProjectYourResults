@@ -22,7 +22,7 @@ import android.widget.Spinner;
 
 import java.util.Objects;
 
-public class CalculateTimePage4 extends AppCompatActivity {
+public class CalculateTimePage extends AppCompatActivity {
     //    private TextView test;
     private EditText distanceEditTextPage4;
     private Spinner categoryEditTextPage4;
@@ -84,11 +84,11 @@ public class CalculateTimePage4 extends AppCompatActivity {
             startActivity(intent);
         });
         goToThirdActivity.setOnClickListener(v ->{
-            Intent intent = new Intent(this, YourCategoryPage3.class);
+            Intent intent = new Intent(this, YourCategoryPage.class);
             startActivity(intent);
         });
         goToFourthActivity.setOnClickListener(v ->{
-            Intent intent = new Intent(this, CalculateTimePage4.class);
+            Intent intent = new Intent(this, CalculateTimePage.class);
             startActivity(intent);
         });
     }

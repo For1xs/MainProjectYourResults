@@ -28,16 +28,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.YourCategoryPage3"
+            android:name=".ui.YourCategoryPage"
             android:exported="false" />
         <activity
-            android:name=".ui.TimeToCategoryActivityPage2"
+            android:name=".ui.TimeToCategoryActivityPage"
             android:exported="false" />
         <activity
             android:name=".ui.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.CalculateTimePage4"
+            android:name=".ui.CalculateTimePage"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

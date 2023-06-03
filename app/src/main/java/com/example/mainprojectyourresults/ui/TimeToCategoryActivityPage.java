@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
-public class TimeToCategoryActivityPage2 extends AppCompatActivity {
+public class TimeToCategoryActivityPage extends AppCompatActivity {
 
     EditText distanceEditText;
     Spinner categoryRunEditText;
@@ -85,12 +85,12 @@ public class TimeToCategoryActivityPage2 extends AppCompatActivity {
             finish();
         });
         goToThirdActivity.setOnClickListener(v ->{
-            Intent intent2 = new Intent(this, YourCategoryPage3.class);
+            Intent intent2 = new Intent(this, YourCategoryPage.class);
             startActivity(intent2);
             finish();
         });
         goToFourthActivity.setOnClickListener(v ->{
-            Intent intent3 = new Intent(this, CalculateTimePage4.class);
+            Intent intent3 = new Intent(this, CalculateTimePage.class);
             startActivity(intent3);
             finish();
         });
