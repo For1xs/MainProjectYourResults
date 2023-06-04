@@ -28,6 +28,7 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -147,7 +148,7 @@ public class GraphActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 List<DataSnapshot> matchingChildren = new ArrayList<>();
-                DataPoint[] dp = new DataPoint[0];
+                ArrayList<DataPoint> dataPoints = new ArrayList<>();
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     int point = 0;
                     if (childSnapshot.child("distance").getValue(String.class).equals(valVariantsOfDistances)) {
@@ -184,21 +185,7 @@ public class GraphActivity extends AppCompatActivity {
                         String timeInSecondsPlusMilliseconds = minutes + "." + seconds;
                         timeInSecondsPlusMillisecondsInt = Double.parseDouble(timeInSecondsPlusMilliseconds);
 
-
-                        series = new LineGraphSeries<>(new DataPoint[]{
-                                new DataPoint(allDay, timeInSecondsPlusMillisecondsInt)
-                        });
-                        series.setColor(Color.argb(200, 162, 201, 255));
-                        series.setDrawAsPath(true);
-                        series.setDataPointsRadius(20);
-                        series.setThickness(8);
-                        series.setDrawDataPoints(true);
-//                        graph.getGridLabelRenderer().setHumanRounding(false);
-                        graph.getGridLabelRenderer().setNumHorizontalLabels(4); // only 4 because of the space
-                        graph.addSeries(series);
-
-                    } else if (point == 0) {
-                    }
+                        dataPoints.add(new DataPoint(allDay, timeInSecondsPlusMillisecondsInt));
 
 //                    dp = new DataPoint[(int) dataSnapshot.getChildrenCount()];
 //
@@ -209,38 +196,23 @@ public class GraphActivity extends AppCompatActivity {
 //
 //
 //                }
-//                series.resetData(dp);
-//                    Calendar calendar1 = Calendar.getInstance();
-//                    calendar1.set(2023, 6 , 8); // month is zero-indexed
-//                    Date allDay1 = calendar1.getTime();
-//
-//                    Calendar calendar2 = Calendar.getInstance();
-//                    calendar2.set(2023, 7 , 9); // month is zero-indexed
-//                    Date allDay2 = calendar2.getTime();
-//
-//                    Calendar calendar3 = Calendar.getInstance();
-//                    calendar3.set(2023, 8 , 10); // month is zero-indexed
-//                    Date allDay3 = calendar3.getTime();
-//
-//
-//
-//                    series = new LineGraphSeries<>(new DataPoint[]{
-//                            new DataPoint(allDay1, 1.2),
-//                            new DataPoint(allDay2, 1.15),
-//                            new DataPoint(allDay3, 1.05)
-//
-//                    });
-//                    series.setColor(Color.argb(200, 162, 201, 255));
-//                    series.setDrawAsPath(true);
-//                    series.setDataPointsRadius(20);
-//                    series.setThickness(8);
-//                    series.setDrawDataPoints(true);
-//                    graph.getGridLabelRenderer().setNumHorizontalLabels(4); // only 4 because of the space
-//                    graph.getGridLabelRenderer().setHumanRounding(true);
-//                    graph.addSeries(series);
+                    } else if (point == 0) {
+                    }
+
+
 
                 }
 
+                dataPoints.sort(Comparator.comparingDouble(DataPoint::getX));
+                series = new LineGraphSeries<>(dataPoints.toArray(new DataPoint[]{}));
+                series.setColor(Color.argb(200, 162, 201, 255));
+                series.setDrawAsPath(true);
+                series.setDataPointsRadius(20);
+                series.setThickness(8);
+                series.setDrawDataPoints(true);
+//                        graph.getGridLabelRenderer().setHumanRounding(false);
+//                        graph.getGridLabelRenderer().setNumHorizontalLabels(4); // only 4 because of the space
+                graph.addSeries(series);
 
 
             }
