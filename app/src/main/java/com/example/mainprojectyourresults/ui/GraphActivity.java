@@ -196,7 +196,15 @@ public class GraphActivity extends AppCompatActivity {
 //                        graph.getGridLabelRenderer().setHumanRounding(false);
                         graph.getGridLabelRenderer().setNumHorizontalLabels(4); // only 4 because of the space
                         graph.addSeries(series);
-
+//                    dp = new DataPoint[(int) dataSnapshot.getChildrenCount()];
+//
+//                    PointValue pointValue = new PointValue((long) allDay, (int) timeInSecondsPlusMillisecondsInt);
+//                    int index = 0;
+//                    dp[index] = new DataPoint(pointValue.getxValue(), pointValue.getyValue());
+//                    index++;
+//
+//
+//                }
                     } else if (point == 0) {
                     }
 
