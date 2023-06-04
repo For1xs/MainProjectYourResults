@@ -200,44 +200,7 @@ public class GraphActivity extends AppCompatActivity {
                     } else if (point == 0) {
                     }
 
-//                    dp = new DataPoint[(int) dataSnapshot.getChildrenCount()];
-//
-//                    PointValue pointValue = new PointValue((long) allDay, (int) timeInSecondsPlusMillisecondsInt);
-//                    int index = 0;
-//                    dp[index] = new DataPoint(pointValue.getxValue(), pointValue.getyValue());
-//                    index++;
-//
-//
-//                }
-//                series.resetData(dp);
-//                    Calendar calendar1 = Calendar.getInstance();
-//                    calendar1.set(2023, 6 , 8); // month is zero-indexed
-//                    Date allDay1 = calendar1.getTime();
-//
-//                    Calendar calendar2 = Calendar.getInstance();
-//                    calendar2.set(2023, 7 , 9); // month is zero-indexed
-//                    Date allDay2 = calendar2.getTime();
-//
-//                    Calendar calendar3 = Calendar.getInstance();
-//                    calendar3.set(2023, 8 , 10); // month is zero-indexed
-//                    Date allDay3 = calendar3.getTime();
-//
-//
-//
-//                    series = new LineGraphSeries<>(new DataPoint[]{
-//                            new DataPoint(allDay1, 1.2),
-//                            new DataPoint(allDay2, 1.15),
-//                            new DataPoint(allDay3, 1.05)
-//
-//                    });
-//                    series.setColor(Color.argb(200, 162, 201, 255));
-//                    series.setDrawAsPath(true);
-//                    series.setDataPointsRadius(20);
-//                    series.setThickness(8);
-//                    series.setDrawDataPoints(true);
-//                    graph.getGridLabelRenderer().setNumHorizontalLabels(4); // only 4 because of the space
-//                    graph.getGridLabelRenderer().setHumanRounding(true);
-//                    graph.addSeries(series);
+
 
                 }
 
