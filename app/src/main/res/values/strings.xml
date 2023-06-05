@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">testFinalProject</string>
+    <string name="app_name">Running results</string>
     <string name="save_event">Save Event</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="NameOfTheCompetition">Название соревнований</string>
